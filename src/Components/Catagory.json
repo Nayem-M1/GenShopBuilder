@@ -1,0 +1,89 @@
+{
+    "catagory":[
+        {
+            "sl":"1",
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Digital Products",
+            "id":"#111",
+            "priority":1
+            
+
+        },
+        {
+            "sl":2,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Automative",
+            "id":"#112",
+            "priority":1
+        },
+        {
+            "sl":3,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Gifts & Carfts",
+            "id":"#113",
+            "priority":1
+        },
+        {
+            "sl":4,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Musical Instruments",
+            "id":"#114",
+            "priority":1
+        },
+        {
+            "sl":5,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Grocecries & Deilies",
+            "id":"#115",
+            "priority":0
+        },
+        {
+            "sl":6,
+            "image":"",
+            "title":"Books & Stationary",
+            "id":"#116",
+            "priority":1
+        },
+        {
+            "sl":7,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Travel and Luggage",
+            "id":"#117",
+            "priority":0
+        },
+        {
+            "sl":8,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Phone & Gadgets",
+            "id":"#118",
+            "priority":1
+        },
+        {
+            "sl":9,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Sports & Outdoor",
+            "id":"#119",
+            "priority":0
+        },
+          {
+            "sl":10,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Home & Chicken",
+            "id":"#111",
+            "priority":1
+            
+
+        },
+          {
+            "sl":11,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Baby",
+            "id":"#111",
+            "priority":1
+            
+
+        }
+      
+      
+    ]
+}

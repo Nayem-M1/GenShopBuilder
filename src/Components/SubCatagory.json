@@ -1,0 +1,89 @@
+{
+    "catagory":[
+        {
+            "sl":"1",
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Laptop",
+            "id":"#111",
+            "priority":1
+            
+
+        },
+        {
+            "sl":2,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Car",
+            "id":"#112",
+            "priority":1
+        },
+        {
+            "sl":3,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Fower",
+            "id":"#113",
+            "priority":1
+        },
+        {
+            "sl":4,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Guiter",
+            "id":"#114",
+            "priority":1
+        },
+        {
+            "sl":5,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Shampo",
+            "id":"#115",
+            "priority":0
+        },
+        {
+            "sl":6,
+            "image":"",
+            "title":"History Book",
+            "id":"#116",
+            "priority":1
+        },
+        {
+            "sl":7,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Indonasia",
+            "id":"#117",
+            "priority":0
+        },
+        {
+            "sl":8,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Apple",
+            "id":"#118",
+            "priority":1
+        },
+        {
+            "sl":9,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Football",
+            "id":"#119",
+            "priority":0
+        },
+          {
+            "sl":10,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Building",
+            "id":"#111",
+            "priority":1
+            
+
+        },
+          {
+            "sl":11,
+            "image":"https://www.thedotstore.com/product-photography/",
+            "title":"Baby",
+            "id":"#111",
+            "priority":1
+            
+
+        }
+      
+      
+    ]
+}
