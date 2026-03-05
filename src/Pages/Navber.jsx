@@ -14,16 +14,16 @@ import { GrCatalog } from "react-icons/gr";
 import { MdOutlineDatasetLinked } from "react-icons/md";
 import { FaProductHunt } from "react-icons/fa6";
 import { LuWarehouse } from "react-icons/lu";
-import Refund from "./Refund.json"
+import Refund from "../Json/Refund.json"      
 import { NavLink, Outlet, useSearchParams } from 'react-router';
 
 const Navber = () => {
 
-      {/*orders hook*/}
-    const [menu,setMenu]=useState(true) 
-    const menuTogggol=()=>{
+     {/* Main SideMenu hook*/}
+     const [menu,setMenu]=useState(true)
+     const menuToggol=()=>{
         setMenu(!menu)
-    }
+     }
 
     {/*orders hook*/}
     const [order,setOrder]=useState(false) 
@@ -70,7 +70,7 @@ const Navber = () => {
                     
                       
                         <label>
-                             <button onClick={menuTogggol}    className="bg-gray-100 p-3 rounded-full inline-flex  hover:bg-gray-200 cursor-pointer
+                             <button onClick={menuToggol}   className="bg-gray-100 p-3 rounded-full inline-flex  hover:bg-gray-200 cursor-pointer
                              ">
                                 <ImMenu3   className="w-6 h-6 text-blue-900" />
                             </button>
@@ -137,11 +137,11 @@ const Navber = () => {
 
   
 
- <div className='flex'> {/*Parent Div*/}
+ <div className='flex '> {/*Parent Div*/}
     
-     {menu &&(
-    <div className={`bg-[#2c3e50] w-[450px] max-h-screen text-white p-6 overflow-y-auto  transition-all 
-    duration-500 ease-in-out  `}>           {/*left Sidebar*/}
+           {/*left Sidebar*/}
+           {menu &&(
+    <div className='bg-[#2c3e50] w-[350px]   max-h-screen text-white p-6 overflow-y-auto   '>    
        <div className=''>
         
          <input 
@@ -152,12 +152,12 @@ const Navber = () => {
 
         <div className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
              <FaHome className='w-10 h-6' />
-             <h2 className='text-2xl  '>Dashbord</h2>        
+             <h2 className='text-xl  '>Dashbord</h2>        
        </div>
 
         <div className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
              <AiOutlineProduct className='w-10 h-6' />
-             <h2 className='text-2xl  '>POS</h2>        
+             <h2 className='text-xl  '>POS</h2>        
        </div>
 
        <h2 className='text-xl mt-7 pl-3 text-gray-400 cursor-poineter'>Order Management</h2>
@@ -165,45 +165,45 @@ const Navber = () => {
        <div>
             <div onClick={togggol} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>       {/*orders*/}
              <FaCartArrowDown className='w-10 h-6' />
-             <h2 className='text-2xl  '>Orders</h2>
+             <h2 className='text-xl  '>Orders</h2>
              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
             
               </div>
                {order &&(
                 <>
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>All</h2> 
+                    <h2 className='text-xl py-2 '>All</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Pending</h2> 
+                    <h2 className='text-xl py-2 '>Pending</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Confirmed</h2> 
+                    <h2 className='text-xl py-2 '>Confirmed</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Packaging</h2> 
+                    <h2 className='text-xl py-2 '>Packaging</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Out for delivery</h2> 
+                    <h2 className='text-xl py-2 '>Out for delivery</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Delivered</h2> 
+                    <h2 className='text-xl py-2 '>Delivered</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Returned</h2> 
+                    <h2 className='text-xl py-2 '>Returned</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Failed to deliver</h2> 
+                    <h2 className='text-xl py-2 '>Failed to deliver</h2> 
                 </div>
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Cancled</h2> 
+                    <h2 className='text-xl py-2 '>Cancled</h2> 
                 </div>
 
                 </>
@@ -216,7 +216,7 @@ const Navber = () => {
        <div>    {/*Refund*/}
           <div onClick={refundToggle} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-poineter'>
              <RiRefund2Fill  className='w-10 h-6' />
-             <h2 className='text-2xl  '>Refund </h2> 
+             <h2 className='text-xl  '>Refund </h2> 
               <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
            </div>
 
@@ -224,7 +224,7 @@ const Navber = () => {
                    
              Refund.refund.map((item)=>
                 <div key={item.id} className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>{item.status}</h2> 
+                    <h2 className='text-xl py-2 '>{item.status}</h2> 
                 </div>    
                 
              )
@@ -238,7 +238,7 @@ const Navber = () => {
 
             <div onClick={catagoryToggole}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>      
              <GrCatalog  className='w-10 h-6' />
-             <h2 className='text-2xl cursor-poineter  '>Catagory Setup</h2>
+             <h2 className='text-xl cursor-poineter  '>Catagory Setup</h2>
              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
             
             </div>
@@ -252,7 +252,7 @@ const Navber = () => {
                     `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
                      ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
                     }> 
-                    <h2 className="text-2xl py-2">Catagories</h2>
+                    <h2 className="text-xl py-2">Catagories</h2>
                       
                 </NavLink>
 
@@ -262,7 +262,7 @@ const Navber = () => {
                     `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
                      ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
                     }> 
-                    <h2 className="text-2xl py-2">Sub-Catagories</h2>
+                    <h2 className="text-xl py-2">Sub-Catagories</h2>
                       
                 </NavLink>
 
@@ -272,7 +272,7 @@ const Navber = () => {
                     `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
                      ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
                     }> 
-                    <h2 className="text-2xl py-2">Sub-Sub-Catagories</h2>
+                    <h2 className="text-xl py-2">Sub-Sub-Catagories</h2>
                       
                  </NavLink>
                   </>
@@ -283,20 +283,20 @@ const Navber = () => {
 
         <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
              <MdOutlineDatasetLinked   className='w-10 h-6' />
-             <h2 className='text-2xl  '>Brand Setup </h2> 
+             <h2 className='text-xl  '>Brand Setup </h2> 
               
         </div>
 
         <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
              <FaProductHunt    className='w-10 h-6' />
-             <h2 className='text-2xl  '>Product Attribute Setup </h2> 
+             <h2 className='text-xl  '>Product Attribute Setup </h2> 
               
         </div>
 
          {/*House Product*/}
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>      
              <GrCatalog  className='w-10 h-6' />
-             <h2 className='text-2xl cursor-poineter  '>House Product</h2>
+             <h2 className='text-xl cursor-poineter  '>House Product</h2>
              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
             
             </div>
@@ -304,23 +304,23 @@ const Navber = () => {
             product &&(
                 <>
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Product List</h2> 
+                    <h2 className='text-xl py-2 '>Product List</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Add New Product</h2> 
+                    <h2 className='text-xl py-2 '>Add New Product</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Limited Stock</h2> 
+                    <h2 className='text-xl py-2 '>Limited Stock</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Bulk Import</h2> 
+                    <h2 className='text-xl py-2 '>Bulk Import</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Request Restock List</h2> 
+                    <h2 className='text-xl py-2 '>Request Restock List</h2> 
                 </div>
                 </>
             )
@@ -328,7 +328,7 @@ const Navber = () => {
          {/*Vendor Product*/}
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer transition-all duration-300'>      
              <GrCatalog  className='w-10 h-6' />
-             <h2 className='text-2xl cursor-poineter  '>Vendor Product</h2>
+             <h2 className='text-xl cursor-poineter  '>Vendor Product</h2>
              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
             
             </div>
@@ -336,19 +336,19 @@ const Navber = () => {
             product &&(
                 <>
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>New Product Request</h2> 
+                    <h2 className='text-xl py-2 '>New Product Request</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Product Update Request</h2> 
+                    <h2 className='text-xl py-2 '>Product Update Request</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Approved Request</h2> 
+                    <h2 className='text-xl py-2 '>Approved Request</h2> 
                 </div>
 
                 <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-2xl py-2 '>Denied Request</h2> 
+                    <h2 className='text-xl py-2 '>Denied Request</h2> 
                 </div>
 
                
@@ -357,25 +357,27 @@ const Navber = () => {
         }
          <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
              <FaProductHunt    className='w-10 h-6' />
-             <h2 className='text-2xl  '>Product Gallary </h2> 
+             <h2 className='text-xl  '>Product Gallary </h2> 
               
         </div>
         <h2 className='text-xl mt-7 pl-3 text-gray-400'>Promotion management</h2>
 
 
 
-    </div> //Left Sidebar End
-    )}
-
+    </div> 
+    
+       )}
     
 
 
 
 
 
-    <div className='bg-gray-100 w-full max-h-screen overflow-y-clip'> {/*right Sideber*/}
+    <div className='bg-gray-100  flex-1 w-auto max-h-screen overflow-y-clip'> {/*right Sideber*/}
       <Outlet/>
     </div>
+
+
   </div>
    
 

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
 import './App.css'
-import Navber from './Components/Navber'
+import Navber from  "../src/Pages/Navber"  
+import Catagories from '../src/Pages/CatagorySetup/Catagories'
 
 
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <div>
         <Navber />
+       
         
     </div>
    

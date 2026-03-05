@@ -13,7 +13,7 @@ const AddCatagory = ({ addCategory, cancel }) => {
   addCategory(formData); // Parent কে পাঠাচ্ছি
   setFormData({ title: "", id: "", priority: 0 }); // form reset
   cancel(); // modal close
-  console.log("jabed ");
+ 
 }
 
   return (

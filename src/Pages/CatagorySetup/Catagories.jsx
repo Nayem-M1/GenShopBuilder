@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
-import Catagory from "./SubSubCatagory.json"
+import Catagory from  "../../Json/Catagory.json"  
 import {  useNavigate, useSearchParams, } from 'react-router';
-import AddCatagory from "./AddCatagory";
-import Export from './Export';
+import AddCatagory from "../../Components/AddCatagory";
+import Export from '../../Components/Export';
 
 
-const SubSubCatagory = () => {
+const Catagories = () => {
 
   //Delete Array
    const[data,setData]=useState(Catagory.catagory)
@@ -49,7 +49,7 @@ const SubSubCatagory = () => {
 
       <div className='flex items-center gap-5  rounded p-7'> {/*First Div*/}
         <GrCatalog className='h-10 w-10 text-red-950  '/>
-        <h1 className='text-4xl font-semibold  '>SubSubCatagory Setup</h1>
+        <h1 className='text-4xl font-semibold  '>Catagory Setup</h1>
       </div>
 
 
@@ -58,7 +58,7 @@ const SubSubCatagory = () => {
       
         <div className='flex justify-between items-center '> {/*Second Div*/}
             <div>
-             <h1 className='text-3xl font-semibold p-7'>SubSubCatagory List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
+             <h1 className='text-3xl font-semibold p-7'>Catagory List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
             </div>
 
             <div className='flex gap-3'>
@@ -104,13 +104,15 @@ const SubSubCatagory = () => {
             </div>
         </div>
 
-         <div> {/*Main Menu Section*/}
-          <ul className='flex text-2xl gap-16 justify-center  items-center bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
-            <li className=''>SL</li>
-            <li className='pl-30'>Catagory</li>
+        <div> {/*Main Menu Section*/}
+
+
+          <ul className='flex  gap-16 items-center justify-center bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
+            <li>SL</li>
+            <li className='pl-34'>Catagory</li>
             <li className='pl-30'>Priority</li>
             <li className='pl-30'>Home Catagory Status</li>
-            <li className='pl-30'>action</li>
+            <li className='pl-28'>action</li>
           </ul>
 
         </div>
@@ -121,7 +123,7 @@ const SubSubCatagory = () => {
             {filterData.map((index)=>
 
          <div key={index.sl}>
-          <ul className='flex text-xl gap-16 justify-center items-center bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
+          <ul className='flex text-xl gap-16 items-center justify-center bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
 
             <div className=' p-3 w-10'>
               <li>{index.sl}</li> {/*SL Number*/}
@@ -142,7 +144,7 @@ const SubSubCatagory = () => {
             <li className=''>{index.priority}</li>
             <li className='pl-58'>status</li>
 
-            <li className='flex items-center gap-5 pl-58 '>
+            <li className='flex items-center gap-5 pl-48 '>
               <div className='border border-blue-700 p-1 rounded hover:shadow-xl'>
                  <MdOutlineEdit className=' w-8 h-10 text-blue-700'/>
               </div>
@@ -170,4 +172,4 @@ const SubSubCatagory = () => {
   )
 }
 
-export default SubSubCatagory
+export default Catagories

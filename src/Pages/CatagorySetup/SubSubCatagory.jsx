@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
-import Catagory from "./SubCatagory.json"
+import Catagory from  "../../Json/SubSubCatagory.json"                      //"./SubSubCatagory.json"
 import {  useNavigate, useSearchParams, } from 'react-router';
-import AddCatagory from "./AddCatagory";
-import Export from './Export';
+import AddCatagory from "../../Components/AddCatagory";
+import Export from '../../Components/Export';
 
 
-const SubCatagory = () => {
+const SubSubCatagory = () => {
 
   //Delete Array
    const[data,setData]=useState(Catagory.catagory)
@@ -49,7 +49,7 @@ const SubCatagory = () => {
 
       <div className='flex items-center gap-5  rounded p-7'> {/*First Div*/}
         <GrCatalog className='h-10 w-10 text-red-950  '/>
-        <h1 className='text-4xl font-semibold  '>SubCatagory Setup</h1>
+        <h1 className='text-4xl font-semibold  '>SubSubCatagory Setup</h1>
       </div>
 
 
@@ -58,7 +58,7 @@ const SubCatagory = () => {
       
         <div className='flex justify-between items-center '> {/*Second Div*/}
             <div>
-             <h1 className='text-3xl font-semibold p-7'>SubCatagory List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
+             <h1 className='text-3xl font-semibold p-7'>SubSubCatagory List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
             </div>
 
             <div className='flex gap-3'>
@@ -104,13 +104,13 @@ const SubCatagory = () => {
             </div>
         </div>
 
-        <div> {/*Main Menu Section*/}
+         <div> {/*Main Menu Section*/}
           <ul className='flex text-2xl gap-16 justify-center  items-center bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
             <li className=''>SL</li>
-            <li className='pl-34'>Catagory</li>
+            <li className='pl-30'>Catagory</li>
             <li className='pl-30'>Priority</li>
             <li className='pl-30'>Home Catagory Status</li>
-            <li className='pl-28'>action</li>
+            <li className='pl-30'>action</li>
           </ul>
 
         </div>
@@ -170,4 +170,4 @@ const SubCatagory = () => {
   )
 }
 
-export default SubCatagory
+export default SubSubCatagory
