@@ -140,8 +140,9 @@ const Navber = () => {
  <div className='flex '> {/*Parent Div*/}
     
            {/*left Sidebar*/}
+
            {menu &&(
-    <div className='bg-[#2c3e50] w-[350px]   max-h-screen text-white p-6 overflow-y-auto   '>    
+    <div className='bg-[#2c3e50] w-[340px]   max-h-screen text-white p-6 overflow-y-auto   '>    
        <div className=''>
         
          <input 
@@ -169,42 +170,70 @@ const Navber = () => {
              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
             
               </div>
+              {/*orers Section*/}
                {order &&(
                 <>
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>All</h2> 
-                </div>
+                <NavLink
+                to='/all'
+                className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                ${isActive ?"bg-[#34495e]":"bg-[#34495]"} `}> 
+                    <h2 className='text-xl py-2 '>All</h2>
+                    </NavLink>
+                <NavLink
+                to='/pending'
+                className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Pending</h2>
+                    </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Pending</h2> 
-                </div>
+                <NavLink
+                to="/confirmed"
+                className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                    ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                    <h2 className='text-xl py-2 '>Confirmed</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Confirmed</h2> 
-                </div>
+                <NavLink
+                   to="/packaging"
+                   className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                    ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                    <h2 className='text-xl py-2 '>Packaging</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Packaging</h2> 
-                </div>
+                  <NavLink
+                to="/outofdelivery"
+                className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                    ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                    <h2 className='text-xl py-2 '>Out Of Delivery</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Out for delivery</h2> 
-                </div>
+                <NavLink
+                    to="/deliver"
+                    className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                    ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                    <h2 className='text-xl py-2 '>Delivered</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Delivered</h2> 
-                </div>
+                 <NavLink
+                     to="/return"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Returned</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Returned</h2> 
-                </div>
+                 <NavLink
+                     to="/failedtodeliver"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Failed To Deliver</h2>
+                </NavLink>
 
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Failed to deliver</h2> 
-                </div>
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>Cancled</h2> 
-                </div>
+                <NavLink
+                     to="/cancle"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Cancled</h2>
+                </NavLink>
 
                 </>
                )}
@@ -373,7 +402,7 @@ const Navber = () => {
 
 
 
-    <div className='bg-gray-100  flex-1 w-auto max-h-screen overflow-y-clip'> {/*right Sideber*/}
+    <div className='bg-gray-100  flex-1 w-auto max-h-screen overflow-y-auto'> {/*right Sideber*/}
       <Outlet/>
     </div>
 

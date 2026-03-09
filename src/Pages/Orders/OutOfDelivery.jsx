@@ -7,10 +7,10 @@ import {  useNavigate, useSearchParams, } from 'react-router';
 import AddCatagory from "../../Components/AddCatagory";
 import Export from '../../Components/Export';
 import { MdOutlineDownload } from "react-icons/md";
-import all from "../../Json/OrdersJson/pending.json"
+import all from "../../Json/OrdersJson/OutOfDelivery.json"
 
 
-const Pending = () => {
+const OutOfDelivery = () => {
   
   //Data State
   const [data, setData] = useState(all);
@@ -50,7 +50,7 @@ const Pending = () => {
         {/*First Div*/}
       <div className='flex items-center gap-5  rounded p-7'> 
         <GrCatalog className='h-10 w-10 text-red-950  '/>
-        <h1 className='text-4xl font-semibold  '>Pending orders</h1>
+        <h1 className='text-4xl font-semibold  '>Out Of Delivery Orders</h1>
       </div>
 
     
@@ -193,4 +193,4 @@ const Pending = () => {
   )
 }
 
-export default Pending
+export default OutOfDelivery
