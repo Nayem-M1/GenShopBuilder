@@ -13,9 +13,12 @@ import { AiOutlineProduct } from "react-icons/ai";
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineDatasetLinked } from "react-icons/md";
 import { FaProductHunt } from "react-icons/fa6";
-import { LuWarehouse } from "react-icons/lu";
-import Refund from "../Json/Refund.json"      
+import { LuWarehouse } from "react-icons/lu";    
 import { NavLink, Outlet, useSearchParams } from 'react-router';
+import { FaChevronDown } from "react-icons/fa6";
+import { TbBrandBootstrap } from "react-icons/tb";
+import { FaIdeal } from "react-icons/fa6";
+import { IoIosNotifications } from "react-icons/io";
 
 const Navber = () => {
 
@@ -47,6 +50,18 @@ const Navber = () => {
        const[product,setProduct]=useState(false)
        const productToggole=()=>{
         setProduct(!product)
+       }
+
+       {/*Offers & Deals Hook*/}
+       const[offer,setOffer]=useState(false)
+       const offerToggole=()=>{
+        setOffer(!offer)
+       }
+
+       {/*Notification Hook*/}
+       const[notification,setNotification]=useState(false)
+       const notificationToggole=()=>{
+        setNotification(!notification)
        }
 
 
@@ -141,7 +156,7 @@ const Navber = () => {
     
            {/*left Sidebar*/}
 
-           {menu &&(
+  {menu &&(
     <div className='bg-[#2c3e50] w-[340px]   max-h-screen text-white p-6 overflow-y-auto   '>    
        <div className=''>
         
@@ -167,7 +182,7 @@ const Navber = () => {
             <div onClick={togggol} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>       {/*orders*/}
              <FaCartArrowDown className='w-10 h-6' />
              <h2 className='text-xl  '>Orders</h2>
-             <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
             
               </div>
               {/*orers Section*/}
@@ -246,18 +261,38 @@ const Navber = () => {
           <div onClick={refundToggle} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-poineter'>
              <RiRefund2Fill  className='w-10 h-6' />
              <h2 className='text-xl  '>Refund </h2> 
-              <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
+              <FaChevronDown className='w-10 h-5 pr-0' /> 
            </div>
 
-             {refund &&
-                   
-             Refund.refund.map((item)=>
-                <div key={item.id} className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
-                    <h2 className='text-xl py-2 '>{item.status}</h2> 
-                </div>    
-                
-             )
-             }
+            {refund &&(<>
+            <NavLink
+                     to="/pendingR"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Pending</h2>
+            </NavLink>
+            <NavLink
+                     to="/approvedR"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Approved</h2>
+            </NavLink>
+            <NavLink
+                     to="/refundedR"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Refunded</h2>
+            </NavLink>
+            <NavLink
+                     to="/rejectedR"
+                     className={({isActive})=>`px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer
+                     ${isActive ?"bg-[#34495e]":"bg-[#34495]"}`}>
+                     <h2 className='text-xl py-2 '>Rejected</h2>
+            </NavLink>
+            
+            
+            
+            </>)}
      
        </div>
 
@@ -268,7 +303,7 @@ const Navber = () => {
             <div onClick={catagoryToggole}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>      
              <GrCatalog  className='w-10 h-6' />
              <h2 className='text-xl cursor-poineter  '>Catagory Setup</h2>
-             <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
             
             </div>
                {catagory &&(
@@ -326,7 +361,7 @@ const Navber = () => {
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>      
              <GrCatalog  className='w-10 h-6' />
              <h2 className='text-xl cursor-poineter  '>House Product</h2>
-             <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
             
             </div>
         {
@@ -358,13 +393,13 @@ const Navber = () => {
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer transition-all duration-300'>      
              <GrCatalog  className='w-10 h-6' />
              <h2 className='text-xl cursor-poineter  '>Vendor Product</h2>
-             <MdKeyboardDoubleArrowDown className='w-10 h-7 pr-0' /> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
             
             </div>
         {
             product &&(
                 <>
-                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer'>
+                <div className='px-7 pl-14 space-y-5 mt-3 flex justify-between items-center bg-[#34495] hover:bg-[#34495e] rounded cursor-pointer '>
                     <h2 className='text-xl py-2 '>New Product Request</h2> 
                 </div>
 
@@ -389,13 +424,116 @@ const Navber = () => {
              <h2 className='text-xl  '>Product Gallary </h2> 
               
         </div>
+
         <h2 className='text-xl mt-7 pl-3 text-gray-400'>Promotion management</h2>
 
+         <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <TbBrandBootstrap    className='w-10 h-6' />
+             <h2 className='text-xl  '>Banner SetUp </h2> 
+              
+        </div>
+
+        {/*offers And Deals*/}
+
+         <div onClick={offerToggole} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <FaIdeal    className='w-10 h-6' />
+             <h2 className='text-xl  '>Offers & Deals </h2> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
+              
+        </div>
+
+          {offer &&(
+            <>
+            
+            <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Cupon</h2>
+                      
+                </NavLink>
+                <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Flash Deals</h2>
+                      
+                </NavLink>
+                <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Deal of the day</h2>
+                      
+                </NavLink>
+                <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Featured Deal</h2>
+                      
+                </NavLink>
+                <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Clearance Sale</h2>
+                      
+                </NavLink>
+            </>
+          )}
+
+           {/*Notification*/}
+
+         <div onClick={notificationToggole} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <IoIosNotifications    className='w-10 h-6' />
+             <h2 className='text-xl  '>Notification </h2> 
+             <FaChevronDown className='w-10 h-5 pr-0' /> 
+              
+        </div>
+
+          {notification &&(
+            <>
+            
+            <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Send Notification</h2>
+                      
+                </NavLink>
+                <NavLink
+                     to=""
+                     className={({ isActive }) =>
+                    `px-7 mt-3 flex justify-between items-center rounded cursor-pointer pl-14
+                     ${isActive ? "bg-[#34495e]" : "bg-[#34495]"}`
+                    }> 
+                    <h2 className="text-xl py-2">Push Notification SetUp</h2>
+                      
+                </NavLink>
+              
+            </>
+          )}
+
+
+        
 
 
     </div> 
     
-       )}
+ )}
     
 
 

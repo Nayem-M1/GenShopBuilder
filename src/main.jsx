@@ -17,6 +17,11 @@ import Delivered from './Pages/Orders/Delivered.jsx';
 import Returned from './Pages/Orders/Returned.jsx';
 import FailedToDeliver from './Pages/Orders/FailedToDeliver.jsx';
 import Cancled from './Pages/Orders/Cancled.jsx';
+import PendingR from './Pages/Ruturn/PendingR.jsx';
+import ApprovedR from './Pages/Ruturn/ApprovedR.jsx';
+import RefundedR from './Pages/Ruturn/RefundedR.jsx';
+import RejectedR from './Pages/Ruturn/RejectedR.jsx';
+
 
 
 createRoot(document.getElementById('root')).render(
@@ -39,6 +44,12 @@ createRoot(document.getElementById('root')).render(
      <Route path="return" element={<Returned/>}/>
      <Route path="failedtodeliver" element={<FailedToDeliver/>}/>
      <Route path="cancle" element={<Cancled/>}/>
+
+     {/*return path*/}
+     <Route path='pendingR' element={<PendingR />} />
+     <Route path='approvedR' element={<ApprovedR />} />
+     <Route path='refundedR' element={<RefundedR />} />
+     <Route path='rejectedR' element={<RejectedR />} />
    
   
     </Route>

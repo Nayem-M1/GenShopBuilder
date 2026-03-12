@@ -6,14 +6,23 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import {  useNavigate, useSearchParams, } from 'react-router';
 import AddCatagory from "../../Components/AddCatagory";
 import Export from '../../Components/Export';
-import { MdOutlineDownload } from "react-icons/md";
-import all from "../../Json/OrdersJson/confirm.json"
+import { MdOutlineDoneOutline } from "react-icons/md";
+import all from "../../Json/RefundJson/PendingR.json"
+import { TiDeleteOutline } from "react-icons/ti";
+import { FiRefreshCcw } from "react-icons/fi";
 
 
-const Confirmed = () => {
+const PendingR = () => {
   
   //Data State
   const [data, setData] = useState(all);
+
+    //Delete Array
+     
+      const deleteTask = (sl) => {
+     const filteredData = data.filter((item) => item.sl !== sl)
+     setData(filteredData)
+     }
 
   
     //Search Catagory
@@ -28,13 +37,6 @@ const Confirmed = () => {
       setSearchParams({q:searchTerms})
     }
    
-    //Add Catagory
-     const navigate = useNavigate();
-     const [showForm, setShowForm] = useState(false)
-
-     const handleAddCategory = (newCategory) => {
-      setData([...data, { ...newCategory, sl: data.length + 1 }]); // new category add
-      };
 
       //Export
      const[exporttt,setExporttt]=useState(false)
@@ -50,7 +52,7 @@ const Confirmed = () => {
         {/*First Div*/}
       <div className='flex items-center gap-5  rounded p-7'> 
         <GrCatalog className='h-10 w-10 text-red-950  '/>
-        <h1 className='text-4xl font-semibold  '>Confirmed orders</h1>
+        <h1 className='text-4xl font-semibold  '>Pending orders</h1>
       </div>
 
     
@@ -62,7 +64,7 @@ const Confirmed = () => {
       
         <div className='flex justify-between items-center '> {/*Third Div*/}
             <div>
-             <h1 className='text-3xl font-semibold p-7'>Orders List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
+             <h1 className='text-3xl font-semibold p-7'>Pending List <span className='text-xl bg-red-900 rounded-full px-2 text-white'>{data.length}</span> </h1>
             </div>
 
             <div className='flex gap-3'>
@@ -80,7 +82,7 @@ const Confirmed = () => {
                  {/*Export*/}
                 <button 
                  onClick={handleExport}
-                className='bg-gray-100 border-2 border-[#344953] px-5 py-2 shadow-xl rounded-xl hover:bg-[#344953] text-red-900 
+                className='bg-gray-100 border-2 border-[#344953] px-10 py-2 shadow-xl rounded-xl hover:bg-[#344953] text-red-900 
                 font-semibold cursor-pointer'>Export</button>
                 {exporttt &&(
                   <div className=' fixed inset-0 bg-black/40 flex justify-center items-center z-50'>
@@ -88,21 +90,16 @@ const Confirmed = () => {
                   </div>
                 )}
 
+                {/*Filter*/}
+                <button 
+                 
+                className='bg-gray-100 border-2 border-[#344953] px-10 py-2 shadow-xl rounded-xl hover:bg-[#344953] text-red-900 
+                font-semibold cursor-pointer'>Filter</button>
 
 
 
-              <div> {/*Add Catagory*/}               
-                <button
-                onClick={() => setShowForm(true)} 
-                className='bg-[#344953] border border-[#344953] px-5 py-2  hover:shadow-xl rounded-xl text-white cursor-pointer'> +Add Catagory
-                </button>  
-              </div>
-              {showForm && (
 
-              <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
-                <AddCatagory  addCategory={handleAddCategory}   cancel={() => setShowForm(false)}   />
-              </div>
-             )}
+      
                         
 
 
@@ -115,13 +112,12 @@ const Confirmed = () => {
 
           <ul className='flex   items-center justify-between   bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
             <li>SL</li>
-            <li className='pl-18'>OrderID</li>
-            <li className='pl-20'>OrderDate</li>
-            <li className='pl-30'>CustomerInfo</li>
-            <li className='pl-32'>Store</li>
+            <li className='pl-12'>RefundID</li>
+            <li className='pl-10'>OrderID</li>
+            <li className='pl-20'>ProductInfo</li>
+            <li className='pl-50'>CustomerInfo</li>
             <li className='pl-26'>Total Amount</li>
-            <li className='pl-10'>Payment Method</li>
-            <li className='pl-10'>Action</li>
+            <li className='pl-20'>Action</li>
           </ul>
 
         </div>
@@ -133,44 +129,58 @@ const Confirmed = () => {
             filterdata.map((index)=>
 
          <div key={index.sl}>
-          <ul className='flex text-xl  items-center justify-between   bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
+          <ul className='flex text-xl  items-center justify-between  bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
 
              {/*SL Number*/}
-            <div className=' p-3 w-10'>
+            <div className=' p-3 w-10 '>
               <li>{index.sl}</li> 
             </div>
+
+             {/*Refund ID*/}
+            <div className='p-1 w-24  ml-7 '>
+              <li>{index.refundId}</li>
+            </div>
              {/*Order ID*/}
-            <div className='p-1 w-24  ml-14'>
+            <div className='p-1 w-24  ml-12'>
               <li>{index.orderId}</li>
             </div>
-              {/*Order Date */}
-              <div className='ml-14'>
-                <p className='p-1 w-48'>{index.orderDate} {index.orderTime}</p>
+              {/*ProductInfo */}
+              <div className='ml-12 flex gap-2 items-center w-80 overflow-hidden'>
+                <div><img src={index.image}  className='w-10 h-12 object-cover' /></div>
+                <div>
+                  <p>{index.productInfo}</p>
+                  <p>Quantity: {index.quentity}</p>
+                </div>
                
               </div>
+
               {/*Customer Info*/}
-              <div className='ml-12'>
+              <div className='ml-10  overflow-hidden'>
                
-   
-                <p className=' w-56'>{index.customerInfo}  {index.phone}</p>
+              <p className=' w-58'>{index.customerInfo}  {index.phone}</p>
               </div>
-               {/*store*/}
-              <div className=' w-40  ml-10'>
-               <li>{index.store}</li>
-              </div>
+               
               
 
           
 
-            <div className='w-28  ml-5  '><li className='ml-'>{index.totalAmount}</li></div>
-           <div > <p className='ml-11 mr-9 w-30 flex justify-center items-center rounded p-1'>{index.paymentMethod}</p></div>
+            <div className='w-28  ml-7  '><li className='ml-'>{index.totalAmount}</li></div>
+           
 
-            <li className='flex items-center gap-5 ml- '>
+            <li className='flex items-center gap-5 ml-10'>
               <div className='border border-green-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*View icon*/}
                  <MdOutlineRemoveRedEye className=' w-8 h-8 text-green-700'/>
               </div>
+              
+              
+              <div className='border border-red-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Refresh icon*/}
+                <FiRefreshCcw  className=' w-8 h-8 text-red-700' />
+              </div>
+              <div onClick={()=>deleteTask(index.sl)} className='border border-red-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Download icon*/}
+                <TiDeleteOutline  className=' w-8 h-8 text-red-700' />
+              </div>
               <div className='border border-green-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Download icon*/}
-                <MdOutlineDownload  className=' w-8 h-8 text-green-700' />
+                <MdOutlineDoneOutline  className=' w-8 h-8 text-green-700' />
               </div>
 
             </li>
@@ -193,4 +203,4 @@ const Confirmed = () => {
   )
 }
 
-export default Confirmed
+export default PendingR

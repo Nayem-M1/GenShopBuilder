@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
-import Catagory from "../../Json/SubCatagory.json"              //"./SubCatagory.json"
+import Catagory from  "../../Json/CatagoryJson/SubCatagory.json"           //"./SubCatagory.json"
 import {  useNavigate, useSearchParams, } from 'react-router';
 import AddCatagory from "../../Components/AddCatagory";
 import Export from '../../Components/Export';

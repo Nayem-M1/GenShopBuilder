@@ -113,7 +113,7 @@ const OutOfDelivery = () => {
         <div> {/*Main Menu Section*/}
 
 
-          <ul className='flex   items-center justify-center bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
+          <ul className='flex   items-center justify-between  bg-gray-100 py-3 pl-7 pr-12 mr-10 ml-7 rounded font-semibold'>
             <li>SL</li>
             <li className='pl-18'>OrderID</li>
             <li className='pl-20'>OrderDate</li>
@@ -133,7 +133,7 @@ const OutOfDelivery = () => {
             filterdata.map((index)=>
 
          <div key={index.sl}>
-          <ul className='flex text-xl  items-center  bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
+          <ul className='flex text-xl  items-center justify-between   bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
 
              {/*SL Number*/}
             <div className=' p-3 w-10'>
