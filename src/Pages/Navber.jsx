@@ -19,6 +19,10 @@ import { FaChevronDown } from "react-icons/fa6";
 import { TbBrandBootstrap } from "react-icons/tb";
 import { FaIdeal } from "react-icons/fa6";
 import { IoIosNotifications } from "react-icons/io";
+import { TfiAnnouncement } from "react-icons/tfi";
+import { MdForwardToInbox } from "react-icons/md";
+import { FaHeadphones } from "react-icons/fa";
+
 
 const Navber = () => {
 
@@ -296,7 +300,10 @@ const Navber = () => {
      
        </div>
 
+
         <h2 className='text-xl mt-7 pl-3 text-gray-400'>Order Management</h2>
+
+
       
         <div>  {/*catagory*/}
 
@@ -357,6 +364,8 @@ const Navber = () => {
               
         </div>
 
+
+
          {/*House Product*/}
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>      
              <GrCatalog  className='w-10 h-6' />
@@ -389,6 +398,9 @@ const Navber = () => {
                 </>
             )
         }
+
+
+
          {/*Vendor Product*/}
         <div onClick={()=>productToggole()}  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer transition-all duration-300'>      
              <GrCatalog  className='w-10 h-6' />
@@ -432,6 +444,8 @@ const Navber = () => {
              <h2 className='text-xl  '>Banner SetUp </h2> 
               
         </div>
+
+
 
         {/*offers And Deals*/}
 
@@ -493,6 +507,8 @@ const Navber = () => {
             </>
           )}
 
+
+
            {/*Notification*/}
 
          <div onClick={notificationToggole} className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
@@ -526,6 +542,35 @@ const Navber = () => {
               
             </>
           )}
+            
+
+
+            {/*Announcement*/}
+          <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <TfiAnnouncement    className='w-10 h-6' />
+             <h2 className='text-xl  '>Announcement </h2>             
+          </div>
+
+
+
+
+          {/*Helps And Support*/}
+          <h2 className='text-xl mt-7 pl-3 text-gray-400'>Helps & Support</h2>
+
+          <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <MdForwardToInbox    className='w-10 h-6' />
+             <h2 className='text-xl  '>Inbox </h2>             
+          </div>
+
+          <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <FaMessage    className='w-10 h-6' />
+             <h2 className='text-xl  '>Messages </h2>             
+          </div>
+
+          <div  className='bg-[#34495] hover:bg-[#34495e] rounded mt-7 flex items-center py-2 pl-2 gap-3 cursor-pointer'>
+             <FaHeadphones    className='w-10 h-6' />
+             <h2 className='text-xl  '>Support Ticket </h2>             
+          </div>
 
 
         

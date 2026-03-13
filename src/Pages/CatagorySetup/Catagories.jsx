@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -16,12 +16,21 @@ const Catagories = () => {
    const filteredData = data.filter((item) => item.sl !== sl)
    setData(filteredData)
    }
+
+
+   //Data import fron api
+   useEffect(()=>{
+    (async()=>{
+      let response=await fetch("http://192.168.0.113:8080/api/v1/category")
+      let result=await response.json();
+      setData(result.data)
+     })()
+   },[])
     //Search Catagory
     const[searchParams,setSearchParams]=useSearchParams();
     const searchQuery=searchParams.get("q") || "";
     const [searchTerms,setSearchTerms]=useState(searchQuery)
-
-    const filterData= data.filter(data=>data.title.toLowerCase().includes(searchTerms.toLowerCase()))
+    //const filterData= data.filter(item=>item.catagoryName.toLowerCase().includes(searchTerms.toLowerCase()))
 
     const handleSearch=(event)=>{
       event.preventDefault();
@@ -120,35 +129,36 @@ const Catagories = () => {
         {/*import data from json*/}
 
         <div className=' max-h-[650px] overflow-y-scroll'>
-            {filterData.map((index)=>
+            {
+            data.map((item,indx)=>
 
-         <div key={index.sl}>
+         <div key={item}>
           <ul className='flex text-xl gap-16 items-center justify-center bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
 
-            <div className=' p-3 w-10'>
-              <li>{index.sl}</li> {/*SL Number*/}
+            <div className=' p-3 w-10 overflow-hidden'>
+              <li>{indx + 1}</li> {/*SL Number*/}
             </div>
 
-              <div className='  flex items-center w-96 pl-24  '>
+              <div className='  flex items-center w-96 pl-18 overflow-hidden  '>
                  <li className=''> {/*title and id*/}
                   <div className='flex items-center gap-2'>
-                     <img src = './pic1.jpg' className='w-10 h-10 rounded-full'/>
+                     <img src = {item.categoryLogo} className='w-10 h-10 rounded-full'/>
                      <div>
-                       <h3>{index.title}</h3>
-                       <p>{index.id}</p>
+                       <h3>{item.categoryName}</h3>
+                       <p>{item._id}</p>
                      </div>
                   </div>
                 </li>
             </div>
 
-            <li className=''>{index.priority}</li>
-            <li className='pl-58'>status</li>
+            <li className=''>{item.priority}</li>
+            <div className='w-30 ml-42 '><li className=' '>{item.status}</li></div>
 
             <li className='flex items-center gap-5 pl-48 '>
               <div className='border border-blue-700 p-1 rounded hover:shadow-xl'>
                  <MdOutlineEdit className=' w-8 h-10 text-blue-700'/>
               </div>
-              <div onClick={() => deleteTask(index.sl)} className='border border-red-700 p-1 rounded hover:shadow-xl'> {/*delete option*/}
+              <div onClick={() => deleteTask(item.id  )} className='border border-red-700 p-1 rounded hover:shadow-xl'> {/*delete option*/}
                 <AiOutlineDelete className=' w-8 h-10 text-red-700' />
               </div>
 
