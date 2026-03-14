@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { GrCatalog } from "react-icons/gr";
 import { MdOutlineEdit } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
-import Catagory from  "../../Json/CatagoryJson/Catagory.json"
+//import Catagory from  "../../Json/CatagoryJson/Catagory.json"  
 import {  useNavigate, useSearchParams, } from 'react-router';
 import AddCatagory from "../../Components/AddCatagory";
 import Export from '../../Components/Export';
@@ -11,10 +11,13 @@ import Export from '../../Components/Export';
 const Catagories = () => {
 
   //Delete Array
-   const[data,setData]=useState(Catagory.catagory)
-    const deleteTask = (sl) => {
-   const filteredData = data.filter((item) => item.sl !== sl)
-   setData(filteredData)
+   const[data,setData]=useState([ ])
+
+    const deleteTask = (id) => {
+       
+        //  const filteredData = data.filter((item) => item._id !== i)
+        //  setData(filteredData)
+        setData((prevData) => prevData.filter((item) => item._id !== id));
    }
 
 
@@ -30,7 +33,7 @@ const Catagories = () => {
     const[searchParams,setSearchParams]=useSearchParams();
     const searchQuery=searchParams.get("q") || "";
     const [searchTerms,setSearchTerms]=useState(searchQuery)
-    //const filterData= data.filter(item=>item.catagoryName.toLowerCase().includes(searchTerms.toLowerCase()))
+    const filterData= data.filter(item=>item.categoryName?.toLowerCase().includes(searchTerms.toLowerCase()))
 
     const handleSearch=(event)=>{
       event.preventDefault();
@@ -129,14 +132,15 @@ const Catagories = () => {
         {/*import data from json*/}
 
         <div className=' max-h-[650px] overflow-y-scroll'>
-            {
-            data.map((item,indx)=>
 
-         <div key={item}>
+            {
+            filterData.map((item,index)=>
+
+         <div key={item._id}>
           <ul className='flex text-xl gap-16 items-center justify-center bg-white hover:gray-100 py-3 px-7 mr-5 ml-7 rounded    '>
 
             <div className=' p-3 w-10 overflow-hidden'>
-              <li>{indx + 1}</li> {/*SL Number*/}
+              <li>{index + 1 }</li> {/*Index Number*/}
             </div>
 
               <div className='  flex items-center w-96 pl-18 overflow-hidden  '>
@@ -158,7 +162,7 @@ const Catagories = () => {
               <div className='border border-blue-700 p-1 rounded hover:shadow-xl'>
                  <MdOutlineEdit className=' w-8 h-10 text-blue-700'/>
               </div>
-              <div onClick={() => deleteTask(item.id  )} className='border border-red-700 p-1 rounded hover:shadow-xl'> {/*delete option*/}
+              <div onClick={() => deleteTask(item._id  )} className='border border-red-700 p-1 rounded hover:shadow-xl'> {/*delete option*/}
                 <AiOutlineDelete className=' w-8 h-10 text-red-700' />
               </div>
 
