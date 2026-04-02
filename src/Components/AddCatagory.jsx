@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
 
+// import axios from 'axios';
+// const response = await axios.post("http://192.168.0.113:8080/api/v1/category", {
+//   categoryName,
+ 
+// });
+// console.log(response);
+
 const AddCatagory = ({ addCategory, cancel }) => {
   
   const [formData, setFormData] = useState({

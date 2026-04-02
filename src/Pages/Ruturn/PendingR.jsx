@@ -117,7 +117,7 @@ const PendingR = () => {
             <li className='pl-20'>ProductInfo</li>
             <li className='pl-50'>CustomerInfo</li>
             <li className='pl-26'>Total Amount</li>
-            <li className='pl-20'>Action</li>
+            <li className='pl-20 pr-8'>Action</li>
           </ul>
 
         </div>
@@ -169,18 +169,18 @@ const PendingR = () => {
 
             <li className='flex items-center gap-5 ml-10'>
               <div className='border border-green-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*View icon*/}
-                 <MdOutlineRemoveRedEye className=' w-8 h-8 text-green-700'/>
+                 <MdOutlineRemoveRedEye className=' w-5 h-6 text-green-700'/>
               </div>
               
               
               <div className='border border-red-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Refresh icon*/}
-                <FiRefreshCcw  className=' w-8 h-8 text-red-700' />
+                <FiRefreshCcw  className=' w-5 h-6 text-red-700' />
               </div>
               <div onClick={()=>deleteTask(index.sl)} className='border border-red-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Download icon*/}
-                <TiDeleteOutline  className=' w-8 h-8 text-red-700' />
+                <TiDeleteOutline  className=' w-5 h-6 text-red-700' />
               </div>
               <div className='border border-green-700 p-1 rounded hover:shadow-xl cursor-pointer'> {/*Download icon*/}
-                <MdOutlineDoneOutline  className=' w-8 h-8 text-green-700' />
+                <MdOutlineDoneOutline  className=' w-5 h-6 text-green-700' />
               </div>
 
             </li>

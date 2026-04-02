@@ -109,7 +109,7 @@ const RefundedR = () => {
             <li className='pl-12'>RefundID</li>
             <li className='pl-10'>OrderID</li>
             <li className='pl-20'>ProductInfo</li>
-            <li className='pl-50'>CustomerInfo</li>
+            <li className='pl-58'>CustomerInfo</li>
             <li className='pl-26'>Total Amount</li>
             <li className='pl-20'>Action</li>
           </ul>

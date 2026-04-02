@@ -6,7 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import {  useNavigate, useSearchParams, } from 'react-router';
 import AddCatagory from "../../Components/AddCatagory";
 import Export from '../../Components/Export';
-
+import axios from "axios";
 
 const Catagories = () => {
 
@@ -21,14 +21,17 @@ const Catagories = () => {
    }
 
 
-   //Data import fron api
+   //Data import fron API
    useEffect(()=>{
     (async()=>{
-      let response=await fetch("http://192.168.0.113:8080/api/v1/category")
-      let result=await response.json();
-      setData(result.data)
+      // let response=await fetch("http://192.168.0.113:8080/api/v1/category")
+     let response=await axios.get("http://192.168.0.113:8080/api/v1/category")
+      // let result=await response.json();
+       setData(response.data.data)
+       
      })()
    },[])
+
     //Search Catagory
     const[searchParams,setSearchParams]=useSearchParams();
     const searchQuery=searchParams.get("q") || "";
