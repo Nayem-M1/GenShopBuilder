@@ -25,10 +25,13 @@ const Catagories = () => {
    useEffect(()=>{
     (async()=>{
       // let response=await fetch("http://192.168.0.113:8080/api/v1/category")
-     let response=await axios.get("http://192.168.0.113:8080/api/v1/category")
+
+     let response=await axios.get("http://192.168.0.113:30015/api/v1/category")
+    
+
       // let result=await response.json();
        setData(response.data.data)
-       
+       console.log(response.data)
      })()
    },[])
 
